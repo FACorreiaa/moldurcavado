@@ -1,5 +1,5 @@
 'use client';
-import { useActionState, startTransition } from 'react';
+import { useActionState, startTransition, useState } from 'react';
 import { toggleLike, addComment } from '@/app/actions/portfolio';
 import Image from 'next/image';
 
@@ -18,16 +18,32 @@ interface PortfolioItemData {
   comments: Comment[];
 }
 
-export function PortfolioItem({ item, lang, dict }: { item: PortfolioItemData, lang: string, dict: any }) {
-  const desc = lang === 'en' ? item.descriptionEn : item.descriptionPt;
+interface ActionState {
+  success: boolean;
+  error?: string;
+}
 
-  const [, commentAction, isPending] = useActionState(
-    async (_prev: any, formData: FormData) => {
+export function PortfolioItem({ item, lang }: { item: PortfolioItemData, lang: string }) {
+  const desc = lang === 'en' ? item.descriptionEn : item.descriptionPt;
+  const [likeError, setLikeError] = useState<string | null>(null);
+
+  const [state, commentAction, isPending] = useActionState(
+    async (_prev: ActionState | null, formData: FormData) => {
       return await addComment(item.id, formData);
     },
     null
   );
   
+  const handleLike = () => {
+    setLikeError(null);
+    startTransition(async () => {
+      const result = await toggleLike(item.id);
+      if (!result.success) {
+        setLikeError(result.error || 'Failed to like');
+      }
+    });
+  };
+
   return (
     <article className="max-w-xl mx-auto border rounded-xl overflow-hidden bg-card mb-8 shadow-sm">
       <div className="relative aspect-square">
@@ -44,15 +60,14 @@ export function PortfolioItem({ item, lang, dict }: { item: PortfolioItemData, l
       <div className="p-4">
         <div className="flex items-center gap-4 mb-2">
            <button 
-             onClick={() => startTransition(async () => {
-                await toggleLike(item.id);
-             })}
+             onClick={handleLike}
              className="text-2xl hover:scale-110 transition-transform active:scale-95"
              aria-label="Like"
            >
              ❤️
            </button>
            <span className="font-bold">{item.likesCount} likes</span>
+           {likeError && <span className="text-red-500 text-xs">{likeError}</span>}
         </div>
         
         <p className="mb-4">
@@ -60,13 +75,14 @@ export function PortfolioItem({ item, lang, dict }: { item: PortfolioItemData, l
         </p>
 
         <div className="space-y-1 mb-4 text-sm max-h-40 overflow-y-auto">
-          {item.comments.map((c: any) => (
+          {item.comments.map((c) => (
             <div key={c.id}>
               <span className="font-bold">{c.guestName}</span> {c.content}
             </div>
           ))}
         </div>
 
+        {state?.error && <p className="text-red-500 text-xs mb-2">{state.error}</p>}
         <form action={commentAction} className="flex gap-2 border-t pt-2">
           <input 
             name="guestName" 
