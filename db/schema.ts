@@ -1,4 +1,4 @@
-import { pgTable, uuid, text, timestamp, integer } from 'drizzle-orm/pg-core';
+import { pgTable, uuid, text, timestamp, integer, index } from 'drizzle-orm/pg-core';
 
 export const portfolioItems = pgTable('portfolio_items', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -14,6 +14,10 @@ export const comments = pgTable('comments', {
   guestName: text('guest_name').default('Anonymous').notNull(),
   content: text('content').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
+}, (table) => {
+  return {
+    itemIdIdx: index('item_id_idx').on(table.itemId),
+  };
 });
 
 export const likes = pgTable('likes', {
