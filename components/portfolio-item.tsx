@@ -45,7 +45,7 @@ export function PortfolioItem({ item, lang }: { item: PortfolioItemData, lang: s
   };
 
   return (
-    <article className="max-w-xl mx-auto border rounded-xl overflow-hidden bg-card mb-8 shadow-sm">
+    <article className="border rounded-xl overflow-hidden bg-card shadow-sm w-full h-full flex flex-col">
       <div className="relative aspect-square">
         <Image 
           src={item.imageUrl} 
