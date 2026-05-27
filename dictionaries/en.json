@@ -9,5 +9,22 @@
     "title": "MOLDURCAVADO MOLDURAS, LDA",
     "subtitle": "High quality wood frames and canvas stretchers.",
     "cta": "Explore Portfolio"
+  },
+  "about": {
+    "title": "About Us",
+    "description": "Founded with a passion for craftsmanship, Moldurcavado has been providing high-quality wood frames and canvas stretchers for decades. Our mission is to preserve and enhance artwork with the finest materials and traditional techniques."
+  },
+  "services": {
+    "title": "Our Services",
+    "items": {
+      "frames": {
+        "title": "Wood Frames",
+        "description": "High quality artisan wood frames for all types of art."
+      },
+      "stretchers": {
+        "title": "Canvas Stretchers",
+        "description": "Custom wood structures for stretching canvas."
+      }
+    }
   }
 }

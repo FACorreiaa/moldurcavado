@@ -14,7 +14,7 @@ export async function toggleLike(itemId: string) {
         set: { likesCount: sql`${likes.likesCount} + 1` },
       });
     
-    revalidatePath('/');
+    revalidatePath('/[lang]', 'layout');
     return { success: true };
   } catch (error) {
     console.error('Failed to toggle like:', error);
@@ -36,7 +36,7 @@ export async function addComment(itemId: string, formData: FormData) {
 
   try {
     await db.insert(comments).values({ itemId, guestName, content });
-    revalidatePath('/');
+    revalidatePath('/[lang]', 'layout');
     return { success: true };
   } catch (error) {
     console.error('Failed to add comment:', error);

@@ -9,5 +9,22 @@
     "title": "MOLDURCAVADO MOLDURAS, LDA",
     "subtitle": "Molduras de madeira e telas de alta qualidade.",
     "cta": "Explorar Portfólio"
+  },
+  "about": {
+    "title": "Quem Somos",
+    "description": "Fundada com uma paixão pelo artesanato, a Moldurcavado fornece molduras de madeira e telas de alta qualidade há décadas. A nossa missão é preservar e realçar obras de arte com os melhores materiais e técnicas tradicionais."
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "items": {
+      "frames": {
+        "title": "Molduras de Madeira",
+        "description": "Molduras de madeira artesanais de alta qualidade para todos os tipos de arte."
+      },
+      "stretchers": {
+        "title": "Telas e Grades",
+        "description": "Estruturas de madeira personalizadas para esticar tela."
+      }
+    }
   }
 }

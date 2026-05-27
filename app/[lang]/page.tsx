@@ -7,33 +7,87 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
   const dict = await getDictionary(lang);
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-4xl flex-col items-center justify-between py-24 px-4 bg-white dark:bg-zinc-950 sm:items-start sm:px-16">
-        <div className="flex flex-col items-center gap-12 sm:items-start sm:gap-20 w-full mb-16">
-          <Image
-            className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={100}
-            height={20}
-            priority
-          />
-          <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-            <h1 className="max-w-md text-4xl font-bold leading-tight tracking-tight text-black dark:text-zinc-50">
+    <div className="flex flex-col min-h-screen bg-background">
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-8">
+        {/* Hero Section */}
+        <section className="relative flex flex-col items-center py-16 sm:py-24 overflow-hidden rounded-2xl mt-8">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/banner.jpg"
+              alt="Moldurcavado Banner"
+              fill
+              className="object-cover opacity-20 dark:opacity-10"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/60 to-background" />
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center text-center gap-8 px-4">
+            <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-foreground max-w-2xl">
               {dict.hero.title}
             </h1>
-            <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl">
               {dict.hero.subtitle}
             </p>
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <a
+                href="#portfolio"
+                className="inline-flex h-12 items-center justify-center rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                {dict.hero.cta}
+              </a>
+              <a
+                href="#services"
+                className="inline-flex h-12 items-center justify-center rounded-full border border-border bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+              >
+                {lang === 'en' ? 'Our Services' : 'Nossos Serviços'}
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-            <button
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[180px]"
-            >
-              {dict.hero.cta}
-            </button>
+        </section>
+
+        {/* About Section */}
+        <section id="about" className="w-full py-24">
+          <div className="flex flex-col gap-8 max-w-2xl">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{dict.nav.about}</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              {lang === 'en' 
+                ? "With decades of experience in the framing industry, Moldurcavado Molduras, Lda is dedicated to preserving and enhancing your most precious memories and artworks through high-quality wood frames and expert craftsmanship."
+                : "Com décadas de experiência na indústria de molduras, a Moldurcavado Molduras, Lda dedica-se a preservar e realçar as suas memórias e obras de arte mais preciosas através de molduras de madeira de alta qualidade e perícia artesanal."}
+            </p>
           </div>
-        </div>
+        </section>
+
+        {/* Services Section */}
+        <section id="services" className="w-full py-24 border-t border-border">
+          <div className="flex flex-col gap-12">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{dict.nav.services}</h2>
+            <div className="grid gap-8 sm:grid-cols-2">
+              <div className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border">
+                <div className="text-2xl text-primary">🖼️</div>
+                <h3 className="text-xl font-bold text-card-foreground">
+                  {lang === 'en' ? 'Wood Frames' : 'Molduras de Madeira'}
+                </h3>
+                <p className="text-muted-foreground">
+                  {lang === 'en' 
+                    ? 'High quality artisan wood frames for all types of art, from classical to modern styles.' 
+                    : 'Molduras de madeira artesanais de alta qualidade para todos os tipos de arte, desde estilos clássicos a modernos.'}
+                </p>
+              </div>
+              <div className="flex flex-col gap-4 p-6 rounded-2xl bg-card border border-border">
+                <div className="text-2xl text-primary">🎨</div>
+                <h3 className="text-xl font-bold text-card-foreground">
+                  {lang === 'en' ? 'Canvas Stretchers' : 'Telas e Grades'}
+                </h3>
+                <p className="text-muted-foreground">
+                  {lang === 'en' 
+                    ? 'Custom wood structures for stretching canvas, ensuring stability and durability for your paintings.' 
+                    : 'Estruturas de madeira personalizadas para esticar telas, garantindo estabilidade e durabilidade para as suas pinturas.'}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
         
         <PortfolioFeed lang={lang} dict={dict} />
       </main>
