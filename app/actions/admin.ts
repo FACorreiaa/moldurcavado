@@ -6,7 +6,7 @@ import { put, del } from '@vercel/blob';
 import { revalidatePath } from 'next/cache';
 import { eq } from 'drizzle-orm';
 
-export async function uploadPortfolioItem(formData: FormData) {
+export async function uploadPortfolioItem(prevState: any, formData: FormData) {
   const imageFile = formData.get('image') as File;
   const descriptionPt = formData.get('descriptionPt') as string;
   const descriptionEn = formData.get('descriptionEn') as string;
