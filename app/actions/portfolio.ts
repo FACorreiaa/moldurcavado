@@ -26,9 +26,20 @@ export async function addComment(itemId: string, formData: FormData) {
   const content = formData.get('content') as string;
   const guestName = (formData.get('guestName') as string) || 'Anonymous';
 
-  if (!content) return { error: 'Content is required' };
+  if (!content) {
+    return { success: false, error: 'Content is required' };
+  }
 
-  await db.insert(comments).values({ itemId, guestName, content });
-  
-  revalidatePath('/');
+  if (content.length > 500) {
+    return { success: false, error: 'Comment is too long (max 500 chars)' };
+  }
+
+  try {
+    await db.insert(comments).values({ itemId, guestName, content });
+    revalidatePath('/');
+    return { success: true };
+  } catch (error) {
+    console.error('Failed to add comment:', error);
+    return { success: false, error: 'Failed to post comment' };
+  }
 }
