@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "about": "Quem Somos",
+    "services": "Serviços",
+    "portfolio": "Portfólio",
+    "contact": "Contactos"
+  },
+  "hero": {
+    "title": "MOLDURCAVADO MOLDURAS, LDA",
+    "subtitle": "Molduras de madeira e telas de alta qualidade.",
+    "cta": "Explorar Portfólio"
+  }
+}

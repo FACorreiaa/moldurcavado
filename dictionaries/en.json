@@ -1,0 +1,13 @@
+{
+  "nav": {
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "MOLDURCAVADO MOLDURAS, LDA",
+    "subtitle": "High quality wood frames and canvas stretchers.",
+    "cta": "Explore Portfolio"
+  }
+}
