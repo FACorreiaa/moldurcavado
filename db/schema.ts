@@ -47,3 +47,18 @@ export const likesRelations = relations(likes, ({ one }) => ({
     references: [portfolioItems.id],
   }),
 }));
+
+export const contactMessages = pgTable('contact_messages', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  name: text('name').notNull(),
+  email: text('email').notNull(),
+  phone: text('phone'),
+  subject: text('subject'),
+  message: text('message').notNull(),
+  ipHash: text('ip_hash'),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+}, (table) => {
+  return {
+    createdAtIdx: index('contact_created_at_idx').on(table.createdAt),
+  };
+});

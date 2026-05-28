@@ -26,5 +26,37 @@
         "description": "Custom wood structures for stretching canvas."
       }
     }
+  },
+  "portfolio": {
+    "subtitle": "A selection of our recent framing work.",
+    "empty": "No portfolio items yet — check back soon."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Have a project in mind? Send us a message — we usually reply within one business day.",
+    "info": {
+      "heading": "Get in touch",
+      "email": "Email",
+      "phone": "Phone",
+      "mobile": "Mobile",
+      "address": "Address",
+      "hours": "Hours",
+      "emailValue": "info@moldurcavado.pt",
+      "phoneValue": "+351 000 000 000",
+      "mobileValue": "+351 900 000 000",
+      "addressValue": "Address coming soon",
+      "hoursValue": "Mon–Fri · 9:00–18:00"
+    },
+    "form": {
+      "heading": "Send a message",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone (optional)",
+      "subject": "Subject (optional)",
+      "message": "Message",
+      "submit": "Send message",
+      "submitting": "Sending…",
+      "success": "Thanks — your message was sent. We'll reply soon."
+    }
   }
 }

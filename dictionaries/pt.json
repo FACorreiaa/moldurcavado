@@ -26,5 +26,37 @@
         "description": "Estruturas de madeira personalizadas para esticar tela."
       }
     }
+  },
+  "portfolio": {
+    "subtitle": "Uma seleção dos nossos trabalhos recentes.",
+    "empty": "Ainda sem trabalhos publicados — volte em breve."
+  },
+  "contact": {
+    "title": "Contactos",
+    "subtitle": "Tem um projeto em mente? Envie-nos uma mensagem — respondemos normalmente em um dia útil.",
+    "info": {
+      "heading": "Como nos contactar",
+      "email": "Email",
+      "phone": "Telefone",
+      "mobile": "Telemóvel",
+      "address": "Morada",
+      "hours": "Horário",
+      "emailValue": "info@moldurcavado.pt",
+      "phoneValue": "+351 000 000 000",
+      "mobileValue": "+351 900 000 000",
+      "addressValue": "Morada em breve",
+      "hoursValue": "Seg–Sex · 9:00–18:00"
+    },
+    "form": {
+      "heading": "Enviar mensagem",
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefone (opcional)",
+      "subject": "Assunto (opcional)",
+      "message": "Mensagem",
+      "submit": "Enviar mensagem",
+      "submitting": "A enviar…",
+      "success": "Obrigado — a sua mensagem foi enviada. Responderemos em breve."
+    }
   }
 }

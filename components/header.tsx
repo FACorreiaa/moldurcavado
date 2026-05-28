@@ -19,32 +19,50 @@ export function Header({
     setMounted(true);
   }, []);
 
-  const toggleLang = () => {
-    return pathname.replace(`/${lang}`, `/${lang === 'en' ? 'pt' : 'en'}`);
-  };
+  const toggleLangHref = () => pathname.replace(`/${lang}`, `/${lang === 'en' ? 'pt' : 'en'}`);
+
+  const langSwitchLabel = lang === 'en' ? 'Mudar para português' : 'Switch to English';
+  const themeLabel =
+    theme === 'dark'
+      ? lang === 'en' ? 'Switch to light mode' : 'Mudar para modo claro'
+      : lang === 'en' ? 'Switch to dark mode' : 'Mudar para modo escuro';
+
+  const navLinkClass =
+    'text-sm sm:text-base hover:text-primary transition-colors rounded-md px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
 
   return (
-    <header className="sticky top-0 w-full border-b bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
       <div className="container flex h-14 items-center justify-between mx-auto px-4">
-        <div className="font-bold">Moldurcavado</div>
-        <nav className="flex gap-4 items-center">
-          <Link href="#about">{dict.nav.about}</Link>
-          <Link href="#services">{dict.nav.services}</Link>
-          <Link href="#portfolio">{dict.nav.portfolio}</Link>
+        <Link
+          href={`/${lang}`}
+          className="font-bold tracking-tight rounded-md px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          Moldurcavado
+        </Link>
+        <nav className="flex gap-3 sm:gap-5 items-center" aria-label={lang === 'en' ? 'Main navigation' : 'Navegação principal'}>
+          <Link href="#about" className={navLinkClass}>{dict.nav.about}</Link>
+          <Link href="#services" className={navLinkClass}>{dict.nav.services}</Link>
+          <Link href="#portfolio" className={navLinkClass}>{dict.nav.portfolio}</Link>
+          <Link href="#contact" className={navLinkClass}>{dict.nav.contact}</Link>
           <div className="flex items-center w-6 justify-center">
             {mounted ? (
               <button
+                type="button"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="cursor-pointer"
-                aria-label="Toggle theme"
+                className="cursor-pointer rounded-md p-1 hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                aria-label={themeLabel}
               >
-                {theme === 'dark' ? '🌞' : '🌙'}
+                <span aria-hidden="true">{theme === 'dark' ? '🌞' : '🌙'}</span>
               </button>
             ) : (
-              <span className="invisible">🌙</span>
+              <span className="invisible" aria-hidden="true">🌙</span>
             )}
           </div>
-          <Link href={toggleLang()} className="font-medium">
+          <Link
+            href={toggleLangHref()}
+            className="font-medium text-sm rounded-md px-1 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            aria-label={langSwitchLabel}
+          >
             {lang === 'en' ? 'PT' : 'EN'}
           </Link>
         </nav>

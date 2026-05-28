@@ -29,6 +29,7 @@ export default async function RootLayout({
 }>) {
   const { lang } = await params;
   const dict = await getDictionary(lang as 'en' | 'pt');
+  const skipLabel = lang === 'en' ? 'Skip to content' : 'Saltar para o conteúdo';
 
   return (
     <html
@@ -43,6 +44,9 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <a href="#main" className="skip-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
+            {skipLabel}
+          </a>
           <Header dict={dict} lang={lang} />
           {children}
         </ThemeProvider>
