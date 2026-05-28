@@ -63,30 +63,67 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
         {/* Services Section */}
         <section id="services" className="w-full py-16 sm:py-24 border-t border-border">
           <div className="flex flex-col gap-8 sm:gap-12">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{dict.nav.services}</h2>
-            <div className="grid gap-6 sm:gap-8 sm:grid-cols-2">
-              <div className="flex flex-col gap-3 p-6 rounded-2xl bg-card border border-border hover:border-accent/60 transition-colors">
-                <div className="text-3xl" aria-hidden="true">🖼️</div>
-                <h3 className="text-xl font-bold text-card-foreground">
-                  {lang === 'en' ? 'Wood Frames' : 'Molduras de Madeira'}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {lang === 'en'
-                    ? 'High quality artisan wood frames for all types of art, from classical to modern styles.'
-                    : 'Molduras de madeira artesanais de alta qualidade para todos os tipos de arte, desde estilos clássicos a modernos.'}
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 p-6 rounded-2xl bg-card border border-border hover:border-accent/60 transition-colors">
-                <div className="text-3xl" aria-hidden="true">🎨</div>
-                <h3 className="text-xl font-bold text-card-foreground">
-                  {lang === 'en' ? 'Canvas Stretchers' : 'Telas e Grades'}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed">
-                  {lang === 'en'
-                    ? 'Custom wood structures for stretching canvas, ensuring stability and durability for your paintings.'
-                    : 'Estruturas de madeira personalizadas para esticar telas, garantindo estabilidade e durabilidade para as suas pinturas.'}
-                </p>
-              </div>
+            <div className="flex flex-col gap-3 max-w-2xl">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{dict.nav.services}</h2>
+              <p className="text-muted-foreground text-base sm:text-lg">
+                {lang === 'en'
+                  ? 'What we do — three crafts under one roof.'
+                  : 'O que fazemos — três ofícios sob o mesmo teto.'}
+              </p>
+            </div>
+            <div className="grid gap-6 sm:gap-8 md:grid-cols-3">
+              {[
+                {
+                  src: '/services/molduras.svg',
+                  category: lang === 'en' ? 'Wood craftsmanship' : 'Artesanato em madeira',
+                  title: lang === 'en' ? 'Molduras' : 'Molduras',
+                  desc:
+                    lang === 'en'
+                      ? 'Artisan wood frames for every style — from classical mouldings to clean contemporary lines.'
+                      : 'Molduras de madeira artesanais para qualquer estilo — do clássico ao contemporâneo.',
+                },
+                {
+                  src: '/services/telas.svg',
+                  category: lang === 'en' ? 'Canvas & stretchers' : 'Telas e grades',
+                  title: lang === 'en' ? 'Telas' : 'Telas',
+                  desc:
+                    lang === 'en'
+                      ? 'Custom canvas stretchers built to the exact dimensions your work needs, with stable, durable construction.'
+                      : 'Grades para esticar tela feitas à medida exata, com construção estável e duradoura.',
+                },
+                {
+                  src: '/services/vidros.svg',
+                  category: lang === 'en' ? 'Glass & finishing' : 'Vidros e acabamentos',
+                  title: lang === 'en' ? 'Vidros' : 'Vidros',
+                  desc:
+                    lang === 'en'
+                      ? 'Cut-to-size glass — clear, anti-reflective, and museum-grade — to protect and showcase your art.'
+                      : 'Vidros cortados à medida — transparente, antirreflexo ou de museu — para proteger e valorizar a sua arte.',
+                },
+              ].map((s) => (
+                <article
+                  key={s.title}
+                  className="group flex flex-col rounded-2xl bg-card border border-border overflow-hidden hover:border-accent/60 hover:shadow-md transition-all duration-200"
+                >
+                  <div className="relative aspect-[16/10] bg-muted overflow-hidden">
+                    <Image
+                      src={s.src}
+                      alt=""
+                      role="presentation"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-2 p-5 sm:p-6">
+                    <span className="text-xs uppercase tracking-wider text-muted-foreground font-medium">
+                      {s.category}
+                    </span>
+                    <h3 className="text-xl font-bold text-card-foreground">{s.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{s.desc}</p>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

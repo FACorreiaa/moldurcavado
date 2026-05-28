@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-label="Vidros placeholder">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7a5a3d"/>
+      <stop offset="100%" stop-color="#3c2a21"/>
+    </linearGradient>
+    <linearGradient id="gloss" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdfaf6" stop-opacity="0.25"/>
+      <stop offset="50%" stop-color="#fdfaf6" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#fdfaf6" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#g3)"/>
+  <g transform="translate(600 320)">
+    <rect x="-220" y="-160" width="440" height="320" rx="4" fill="url(#gloss)" stroke="#fdfaf6" stroke-opacity="0.85" stroke-width="6" stroke-linejoin="round"/>
+    <line x1="-180" y1="-130" x2="-60" y2="40" stroke="#fdfaf6" stroke-opacity="0.4" stroke-width="3"/>
+    <line x1="-140" y1="-130" x2="-20" y2="40" stroke="#fdfaf6" stroke-opacity="0.25" stroke-width="2"/>
+    <line x1="80" y1="-80" x2="180" y2="80" stroke="#fdfaf6" stroke-opacity="0.3" stroke-width="2"/>
+  </g>
+  <text x="600" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#fdfaf6" fill-opacity="0.95" font-weight="700" letter-spacing="4">VIDROS</text>
+  <text x="600" y="600" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#fdfaf6" fill-opacity="0.65" letter-spacing="6">PLACEHOLDER</text>
+</svg>
