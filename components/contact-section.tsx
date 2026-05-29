@@ -101,32 +101,32 @@ export function ContactSection({ lang, dict }: { lang: string; dict: ContactDict
   const entries = buildInfo(lang, dict);
 
   return (
-    <section id="contact" className="w-full py-16 sm:py-24 border-t border-border">
-      <div className="flex flex-col gap-3 mb-8 sm:mb-12">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">{title}</h2>
-        <p className="text-muted-foreground text-base sm:text-lg max-w-2xl">{subtitle}</p>
+    <section id="contact" className="w-full py-20 sm:py-32 border-t border-border/40">
+      <div className="flex flex-col gap-4 mb-10 sm:mb-16 text-center items-center">
+        <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">{title}</h2>
+        <p className="text-muted-foreground text-lg max-w-2xl">{subtitle}</p>
       </div>
 
       <div className="grid gap-8 lg:gap-12 lg:grid-cols-5">
-        <aside className="lg:col-span-2 rounded-2xl border border-border bg-card text-card-foreground p-6 sm:p-8 flex flex-col gap-6 h-fit">
-          <h3 className="text-xl font-bold">{infoHeading}</h3>
-          <ul className="flex flex-col gap-5">
+        <aside className="lg:col-span-2 rounded-2xl border border-border/40 bg-card/50 backdrop-blur-sm text-card-foreground p-8 sm:p-10 flex flex-col gap-8 h-fit shadow-sm">
+          <h3 className="text-2xl font-semibold">{infoHeading}</h3>
+          <ul className="flex flex-col gap-6">
             {entries.map((entry, i) => (
-              <li key={entry.label} className="flex items-start gap-4">
-                <span className="text-2xl leading-none mt-0.5" aria-hidden="true">
+              <li key={entry.label} className="flex items-start gap-5">
+                <span className="text-2xl leading-none mt-1 opacity-80" aria-hidden="true">
                   {ICONS[i]}
                 </span>
-                <div className="flex flex-col gap-0.5 min-w-0">
-                  <span className="text-xs uppercase tracking-wide text-muted-foreground">{entry.label}</span>
+                <div className="flex flex-col gap-1 min-w-0">
+                  <span className="text-xs uppercase tracking-widest text-primary/70 font-semibold">{entry.label}</span>
                   {entry.href ? (
                     <a
                       href={entry.href}
-                      className="text-sm sm:text-base font-medium text-foreground hover:text-primary transition-colors break-words rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card"
+                      className="text-base font-medium text-foreground hover:text-primary transition-colors break-words rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-card"
                     >
                       {entry.value}
                     </a>
                   ) : (
-                    <span className="text-sm sm:text-base font-medium text-foreground break-words">{entry.value}</span>
+                    <span className="text-base font-medium text-foreground break-words">{entry.value}</span>
                   )}
                 </div>
               </li>
@@ -134,8 +134,8 @@ export function ContactSection({ lang, dict }: { lang: string; dict: ContactDict
           </ul>
         </aside>
 
-        <div className="lg:col-span-3 rounded-2xl border border-border bg-card text-card-foreground p-6 sm:p-8">
-          <h3 className="text-xl font-bold mb-6">{formHeading}</h3>
+        <div className="lg:col-span-3 rounded-2xl border border-border/40 bg-card/50 backdrop-blur-sm text-card-foreground p-8 sm:p-10 shadow-sm">
+          <h3 className="text-2xl font-semibold mb-8">{formHeading}</h3>
           <ContactForm lang={lang} dict={formDict} />
         </div>
       </div>

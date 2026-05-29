@@ -1,47 +1,47 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfaf6;
-  --foreground: #3c2a21;
+  --background: #faf7f2; /* Soft, warm off-white */
+  --foreground: #2c1e16; /* Deep espresso text */
   --card: #ffffff;
-  --card-foreground: #3c2a21;
+  --card-foreground: #2c1e16;
   --popover: #ffffff;
-  --popover-foreground: #3c2a21;
-  --primary: #8b4513;
-  --primary-foreground: #fdfaf6;
-  --secondary: #d2b48c;
-  --secondary-foreground: #3c2a21;
-  --accent: #c87f3a;
-  --accent-foreground: #fdfaf6;
-  --muted: #f4ece1;
-  --muted-foreground: #6b5a4d;
-  --border: #e3d5c8;
-  --input: #e3d5c8;
-  --ring: #a0522d;
-  --destructive: #b3261e;
-  --destructive-foreground: #fdfaf6;
+  --popover-foreground: #2c1e16;
+  --primary: #9e5b32; /* Muted terracotta/wood tone */
+  --primary-foreground: #faf7f2;
+  --secondary: #e6d8cc; /* Soft beige/sand */
+  --secondary-foreground: #4a3424;
+  --accent: #d89664;
+  --accent-foreground: #2c1e16;
+  --muted: #f0e6dc;
+  --muted-foreground: #8c7361;
+  --border: #e8dbce; /* Softer, less intrusive border */
+  --input: #e8dbce;
+  --ring: #9e5b32;
+  --destructive: #b33a3a;
+  --destructive-foreground: #faf7f2;
 }
 
 .dark {
-  --background: #1a0f0a;
-  --foreground: #e8d5c4;
-  --card: #261914;
-  --card-foreground: #e8d5c4;
-  --popover: #261914;
-  --popover-foreground: #e8d5c4;
-  --primary: #c87f3a;
-  --primary-foreground: #1a0f0a;
-  --secondary: #5d4037;
-  --secondary-foreground: #e8d5c4;
-  --accent: #d4a574;
-  --accent-foreground: #1a0f0a;
-  --muted: #2d1e18;
-  --muted-foreground: #b7a18f;
-  --border: #4a3328;
-  --input: #4a3328;
-  --ring: #d4a574;
-  --destructive: #f47174;
-  --destructive-foreground: #1a0f0a;
+  --background: #1c1410; /* Deep, warm charcoal/espresso */
+  --foreground: #ebdcd0; /* Soft beige text */
+  --card: #281d18; /* Slightly lighter than background */
+  --card-foreground: #ebdcd0;
+  --popover: #281d18;
+  --popover-foreground: #ebdcd0;
+  --primary: #d89664; /* Lighter terracotta for contrast */
+  --primary-foreground: #1c1410;
+  --secondary: #3d2a20;
+  --secondary-foreground: #ebdcd0;
+  --accent: #c27d4c;
+  --accent-foreground: #1c1410;
+  --muted: #33231a;
+  --muted-foreground: #a68c78;
+  --border: #3d2a20;
+  --input: #3d2a20;
+  --ring: #d89664;
+  --destructive: #db5c5c;
+  --destructive-foreground: #1c1410;
 }
 
 @theme inline {
@@ -70,6 +70,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .skip-link {

@@ -28,39 +28,52 @@ export function Header({
       : lang === 'en' ? 'Switch to dark mode' : 'Mudar para modo escuro';
 
   const navLinkClass =
-    'text-sm sm:text-base hover:text-primary transition-colors rounded-md px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background';
+    'relative text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-1 py-1 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm';
+  const underlineSpan = <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all group-hover:w-full"></span>;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
-      <div className="container flex h-14 items-center justify-between mx-auto px-4">
+    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 transition-colors duration-300">
+      <div className="container flex h-16 items-center justify-between mx-auto px-4 max-w-5xl">
         <Link
           href={`/${lang}`}
-          className="font-bold tracking-tight rounded-md px-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          className="font-semibold tracking-wide text-lg text-foreground hover:opacity-80 transition-opacity rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
         >
           Moldurcavado
         </Link>
-        <nav className="flex gap-3 sm:gap-5 items-center" aria-label={lang === 'en' ? 'Main navigation' : 'Navegação principal'}>
-          <Link href="#about" className={navLinkClass}>{dict.nav.about}</Link>
-          <Link href="#services" className={navLinkClass}>{dict.nav.services}</Link>
-          <Link href="#portfolio" className={navLinkClass}>{dict.nav.portfolio}</Link>
-          <Link href="#contact" className={navLinkClass}>{dict.nav.contact}</Link>
-          <div className="flex items-center w-6 justify-center">
+        <nav className="flex gap-4 sm:gap-6 items-center" aria-label={lang === 'en' ? 'Main navigation' : 'Navegação principal'}>
+          <Link href="#about" className={navLinkClass}>
+            {dict.nav.about}
+            {underlineSpan}
+          </Link>
+          <Link href="#services" className={navLinkClass}>
+            {dict.nav.services}
+            {underlineSpan}
+          </Link>
+          <Link href="#portfolio" className={navLinkClass}>
+            {dict.nav.portfolio}
+            {underlineSpan}
+          </Link>
+          <Link href="#contact" className={navLinkClass}>
+            {dict.nav.contact}
+            {underlineSpan}
+          </Link>
+          <div className="flex items-center w-6 justify-center ml-2 border-l border-border/50 pl-6 h-6">
             {mounted ? (
               <button
                 type="button"
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="cursor-pointer rounded-md p-1 hover:bg-muted transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="cursor-pointer text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm p-1"
                 aria-label={themeLabel}
               >
-                <span aria-hidden="true">{theme === 'dark' ? '🌞' : '🌙'}</span>
+                <span aria-hidden="true">{theme === 'dark' ? '☀' : '☾'}</span>
               </button>
             ) : (
-              <span className="invisible" aria-hidden="true">🌙</span>
+              <span className="invisible" aria-hidden="true">☾</span>
             )}
           </div>
           <Link
             href={toggleLangHref()}
-            className="font-medium text-sm rounded-md px-1 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="font-medium text-xs tracking-widest uppercase text-muted-foreground hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-sm p-1 ml-1"
             aria-label={langSwitchLabel}
           >
             {lang === 'en' ? 'PT' : 'EN'}
