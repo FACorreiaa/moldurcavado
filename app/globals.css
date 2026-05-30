@@ -7,15 +7,15 @@
   --card-foreground: #2c1e16;
   --popover: #ffffff;
   --popover-foreground: #2c1e16;
-  --primary: #9e5b32; /* Muted terracotta/wood tone */
+  --primary: #94532a; /* Slightly darker terracotta/wood tone */
   --primary-foreground: #faf7f2;
   --secondary: #e6d8cc; /* Soft beige/sand */
   --secondary-foreground: #4a3424;
   --accent: #d89664;
   --accent-foreground: #2c1e16;
   --muted: #f0e6dc;
-  --muted-foreground: #8c7361;
-  --border: #e8dbce; /* Softer, less intrusive border */
+  --muted-foreground: #715d4e; /* Darker for accessibility contrast */
+  --border: #e2d1c3; /* Slightly deeper border */
   --input: #e8dbce;
   --ring: #9e5b32;
   --destructive: #b33a3a;

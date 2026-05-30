@@ -18,6 +18,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
               alt=""
               role="presentation"
               fill
+              sizes="100vw"
               className="object-cover opacity-20 dark:opacity-10 mix-blend-multiply dark:mix-blend-lighten"
               priority
             />
@@ -51,7 +52,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
         {/* About Section */}
         <section id="about" className="w-full py-20 sm:py-32">
           <div className="flex flex-col gap-6 max-w-3xl mx-auto text-center items-center">
-            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-primary/80 uppercase text-sm tracking-widest">{dict.nav.about}</h2>
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight text-primary uppercase text-sm tracking-widest">{dict.nav.about}</h2>
             <p className="text-foreground text-xl sm:text-2xl leading-relaxed font-medium">
               {lang === 'en'
                 ? "With decades of experience in the framing industry, Moldurcavado Molduras, Lda is dedicated to preserving and enhancing your most precious memories and artworks through high-quality wood frames and expert craftsmanship."
@@ -116,7 +117,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
                     />
                   </div>
                   <div className="flex flex-col gap-3 p-6 sm:p-8">
-                    <span className="text-xs uppercase tracking-widest text-primary/70 font-semibold">
+                    <span className="text-xs uppercase tracking-widest text-primary font-bold">
                       {s.category}
                     </span>
                     <h3 className="text-2xl font-semibold text-foreground">{s.title}</h3>

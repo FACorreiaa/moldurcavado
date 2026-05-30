@@ -117,7 +117,7 @@ export function ContactSection({ lang, dict }: { lang: string; dict: ContactDict
                   {ICONS[i]}
                 </span>
                 <div className="flex flex-col gap-1 min-w-0">
-                  <span className="text-xs uppercase tracking-widest text-primary/70 font-semibold">{entry.label}</span>
+                  <span className="text-xs uppercase tracking-widest text-primary font-bold">{entry.label}</span>
                   {entry.href ? (
                     <a
                       href={entry.href}
