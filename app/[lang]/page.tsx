@@ -21,6 +21,7 @@ export default async function Home({ params }: { params: Promise<{ lang: 'en' | 
               sizes="100vw"
               className="object-cover opacity-20 dark:opacity-10 mix-blend-multiply dark:mix-blend-lighten"
               priority
+              fetchPriority="high"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background" />
           </div>
